@@ -6,6 +6,7 @@ from django.core.exceptions import ImproperlyConfigured, PermissionDenied
 from django.contrib.auth import authenticate, get_user
 from django.http import HttpRequest
 from django.test import TestCase
+from django.test.utils import override_settings
 
 
 class BackendTest(TestCase):
@@ -319,7 +320,6 @@ class NewModelBackend(ModelBackend):
     pass
 
 
-@skipIfCustomUser
 class ChangedBackendSettingsTest(TestCase):
     """
     Tests for changes in the settings.AUTHENTICATION_BACKENDS
